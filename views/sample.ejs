@@ -247,14 +247,14 @@
                                     <%= languages[i].option_value %>
                                 </label>
 
-                                <input type="checkbox" name="lang_read" value="read">
-                                <label for="lang_read">Read</label>
+                                <input type="checkbox" name="lang_type<%=i%>" value="yes">
+                                <label for="lang_type">Read</label>
 
-                                <input type="checkbox" name="lang_speak" value="speak">
-                                <label for="lang_speak">Speak</label>
+                                <input type="checkbox" name="lang_type<%=i%>" value="yes">
+                                <label for="lang_type">Speak</label>
 
-                                <input type="checkbox" name="lang_write" value="write">
-                                <label for="lang_write">Write</label>
+                                <input type="checkbox" name="lang_type<%=i %>" value="yes">
+                                <label for="lang_type">Write</label>
                             </div>
                         <%}%>
                         
@@ -274,13 +274,14 @@
                                 </label>
                                 
                                 <input type="radio" name="tech_type<%= technologies[i].option_value %>" value="beginner">
-                                <label for="tech_type">Beginner</label>
+                                <label for="tech_type<%= technologies[i].option_value %>">Beginner</label>
     
                                 <input type="radio" name="tech_type<%= technologies[i].option_value %>" value="mideator">
-                                <label for="tech_type">Mideator</label>
+                                <label for="tech_type<%= technologies[i].option_value %>">Mideator</label>
                                 
                                 <input type="radio" name="tech_type<%= technologies[i].option_value %>" value="expert">
-                                <label for="tech_type">Expert</label>
+                                <label for="tech_type<%= technologies[i].option_value %>">Expert</label>
+
                             </div>
                         <%}%>
                         

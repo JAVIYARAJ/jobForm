@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Info</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+    
+</style>
+<body>
+   <div class="mt-3">
+    <table border="1" class="table">
+        <tr>
+            <th>candidate_id</th>
+            <th>fname</th>
+            <th>lname</th>
+            <th>designation</th>
+            <th>dob</th>
+            <th>zcode</th>
+            <th>gender</th>
+            <th>pref_location</th>
+            <th>expacted_ctc</th>
+            <th>email</th>
+            <th>current_ctc</th>
+            <th>department</th>
+            <th>notice_period</th>
+            <th>address</th>
+            <th>city</th>
+            <th>createdAt</th>
+            <th>phone</th>
+            <th>state</th>
+            <th></th>
+        </tr>
+        <% for(let i=0;i< data.length;i++){%>
+            <tr>
+                <% for(let j=0;j<id.length;j++) {%>
+                    <td>
+                        <%= data[i][id[j]] %>
+                    </td>
+                <%}%>
+                <td>
+                    <a href="/more/?id=<%= data[i].candidate_id %>">More</a>
+                </td>
+            </tr>
+        <%}%>
+    </table>
+   </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+</html>
