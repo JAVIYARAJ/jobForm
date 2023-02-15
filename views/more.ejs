@@ -72,6 +72,25 @@
             <%}%>
         </table>
     </div>
+    <div class="container-fluid">
+        <h3>Technology Info</h3>
+        <table class="table" border="1">
+            <tr>
+                <th>candidate_id</th>
+                <th>technology_name</th>
+                <th>technology_level</th>
+            </tr>
+            <% for(let i=0;i<technology_data.length;i++)  {%>
+                <tr>
+                    <% for(let j=0;j<id3.length;j++) {%>
+                        <td>
+                            <%= technology_data[i][id3[j]] %>
+                        </td>
+                    <%}%>
+                </tr>
+            <%}%>
+        </table>
+    </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 

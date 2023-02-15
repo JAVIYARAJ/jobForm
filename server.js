@@ -284,14 +284,18 @@ app.get('/more',(req,res)=>{
     let key1=['candidate_id','course_name','education_board','education_year','education_grade'];
     let key2=['candidate_id','company_name','candidate_position','candidate_joining','candidate_leaving'];
     let key3=['candidate_id','language_name','language_read','language_speak','language_write'];
+    let key4=['candidate_id','technology_name','technology_level'];
     let acadamic_query=`select * from design.acadamic_info where candidate_id=${Number.parseInt(id)}`;
     let experience_query=`select * from design.experience_info where candidate_id=${Number.parseInt(id)}`;
     let language_query=`select * from design.language_info where candidate_id=${Number.parseInt(id)}`;
+    let technology_query=`select * from design.technology_info where candidate_id=${Number.parseInt(id)}`;
     con.query(acadamic_query,(err,result1,filed)=>{
        con.query(experience_query,(err,result2,filed)=>{
         con.query(language_query,(err,result3,filed)=>{
-            console.log(result3);
-            res.render("more",{acadamic_data:result1,id:key1,experience_data:result2,id1:key2,language_data:result3,id2:key3});
+            con.query(technology_query,(err,result4,filed)=>{
+                console.log(result4);
+                res.render("more",{acadamic_data:result1,id:key1,experience_data:result2,id1:key2,language_data:result3,id2:key3,technology_data:result4,id3:key4});
+            })
         })
        })
     })
