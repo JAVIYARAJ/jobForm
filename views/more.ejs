@@ -91,6 +91,26 @@
             <%}%>
         </table>
     </div>
+    <div class="container-fluid">
+        <h3>Referance Info</h3>
+        <table class="table" border="1">
+            <tr>
+                <th>candidate_id</th>
+                <th>person_name</th>
+                <th>person_contact</th>
+                <th>person_relation</th>
+            </tr>
+            <% for(let i=0;i<refrence_data.length;i++)  {%>
+                <tr>
+                    <% for(let j=0;j<id4.length;j++) {%>
+                        <td>
+                            <%= refrence_data[i][id4[j]] %>
+                        </td>
+                    <%}%>
+                </tr>
+            <%}%>
+        </table>
+    </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
