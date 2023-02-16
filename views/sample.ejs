@@ -171,8 +171,8 @@
                     <div>
                         <div class="dbl_input">
                             <div class="col">
-                                <label for="edu_course">Name of course</label>
-                                <select name="edu_course">
+                                <label for="Course">Name of course</label>
+                                <select name="Course">
                                     <% for(let i=0;i< courses.length;i++) {%>
                                         <option value="<%= courses[i].course_name %>">
                                             <%= courses[i].course_name %>
@@ -182,17 +182,17 @@
                                
                             </div>
                             <div class="col">
-                                <label for="edu_board">Name of Board</label>
-                                <input type="text" name="edu_board">
+                                <label for="institution">Name of Board</label>
+                                <input type="text" name="institution">
                             </div>
                             <div class="col">
 
-                                <label for="edu_passing_year">Passing year</label>
-                                <input type="text" name="edu_passing_year">
+                                <label for="Passing_Year">Passing year</label>
+                                <input type="text" name="Passing_Year">
                             </div>
                             <div class="col">
-                                <label for="edu_per">Percentage</label>
-                                <input type="text" name="edu_per">
+                                <label for="Percentage">Percentage</label>
+                                <input type="text" name="Percentage">
                             </div>
                         </div>
                     </div>
@@ -242,19 +242,19 @@
                        
                         <% for(let i=0;i<languages.length;i++) {%>
                             <div id="lang_cols">
-                                <input type="checkbox" name="lang_name" value="<%= languages[i].option_value %>">
-                                <label for="lang_hindi">
+                                <input type="checkbox" name="<%= languages[i].option_value %>" value="<%= languages[i].option_value %>">
+                                <label for="<%= languages[i].option_value %>">
                                     <%= languages[i].option_value %>
                                 </label>
 
-                                <input type="checkbox" name="lang_type<%=i%>" value="yes">
-                                <label for="lang_type">Read</label>
+                                <input type="checkbox" name="<%= languages[i].option_value %>r" value="yes">
+                                <label for="<%= languages[i].option_value %>r">Read</label>
 
-                                <input type="checkbox" name="lang_type<%=i%>" value="yes">
-                                <label for="lang_type">Speak</label>
+                                <input type="checkbox" name="<%= languages[i].option_value %>s" value="yes">
+                                <label for="<%= languages[i].option_value %>s">Speak</label>
 
-                                <input type="checkbox" name="lang_type<%=i %>" value="yes">
-                                <label for="lang_type">Write</label>
+                                <input type="checkbox" name="<%= languages[i].option_value %>w" value="yes">
+                                <label for="<%= languages[i].option_value %>w">Write</label>
                             </div>
                         <%}%>
                         
@@ -268,19 +268,19 @@
                         <% for(let i=0;i<technologies.length;i++) {%>
                             <div id="lang_cols">
 
-                                <input type="checkbox" name="tech_main" value="<%= technologies[i].option_value %>">
+                                <input type="checkbox" name="<%= technologies[i].option_value %>" value="<%= technologies[i].option_value %>">
                                 <label for="tech_main">
                                     <%= technologies[i].option_value %>
                                 </label>
                                 
-                                <input type="radio" name="tech_type<%= technologies[i].option_value %>" value="beginner">
-                                <label for="tech_type<%= technologies[i].option_value %>">Beginner</label>
+                                <input type="radio" name="<%= technologies[i].option_value %>a" value="beginner">
+                                <label for="<%= technologies[i].option_value %>a">Beginner</label>
     
-                                <input type="radio" name="tech_type<%= technologies[i].option_value %>" value="mideator">
-                                <label for="tech_type<%= technologies[i].option_value %>">Mideator</label>
+                                <input type="radio" name="<%= technologies[i].option_value %>a" value="mideator">
+                                <label for="<%= technologies[i].option_value %>a">Mideator</label>
                                 
-                                <input type="radio" name="tech_type<%= technologies[i].option_value %>" value="expert">
-                                <label for="tech_type<%= technologies[i].option_value %>">Expert</label>
+                                <input type="radio" name="<%= technologies[i].option_value %>a" value="expert">
+                                <label for="<%= technologies[i].option_value %>a">Expert</label>
 
                             </div>
                         <%}%>
@@ -411,8 +411,8 @@
         <div>
             <div class="dbl_input">
                 <div class="col">
-                    <label for="edu_course">Name of course</label>
-                    <select name="edu_course">
+                    <label for="Course">Name of course</label>
+                    <select name="Course">
                                 <% for(let i=0;i< courses.length;i++) {%>
                                     <option value="<%= courses[i].course_name %>">
                                         <%= courses[i].course_name %>
@@ -421,16 +421,16 @@
                     </select>
                 </div>
                 <div class="col">
-                    <label for="edu_board">Name of Board</label>
-                    <input type="text" name="edu_board">
+                    <label for="institution">Name of Board</label>
+                    <input type="text" name="institution">
                 </div>
                 <div class="col">
-                    <label for="edu_passing_year">Passing year</label>
-                    <input type="text" name="edu_passing_year">
+                    <label for="Passing_Year">Passing year</label>
+                    <input type="text" name="Passing_Year">
                 </div>
                 <div class="col">
-                    <label for="edu_per">Percentage</label>
-                    <input type="text" name="edu_per">
+                    <label for="Percentage">Percentage</label>
+                    <input type="text" name="Percentage">
                 </div>
             </div></div>`;
 
