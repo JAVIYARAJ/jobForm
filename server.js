@@ -353,6 +353,16 @@ app.post('/search', (req, res) => {
   })
 })
 
+
+app.get('/edit',(req,res)=>{
+  let data=req.query.value;
+
+  data.forEach((value)=>{
+    console.log(value);
+  });
+
+});
+
 app.listen(3000, () => {
   console.log('server is running');
 })
