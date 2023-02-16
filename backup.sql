@@ -204,7 +204,7 @@ UNLOCK TABLES;
 -- Dump completed on 2023-02-15 19:07:25
 -- MySQL dump 10.13  Distrib 8.0.29, for Linux (x86_64)
 --
--- Host: localhost    Database: practice
+-- Host: localhost    Database: design
 -- ------------------------------------------------------
 -- Server version	8.0.32
 

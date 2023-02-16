@@ -40,42 +40,52 @@
             <span>~ <span class="green">indicate phone</span></span>
             <span>% <span class="green">indicate designation</span></span>
         </div>
-        <table border="1" class="table">
-            <tr>
-                <th>candidate_id</th>
-                <th>fname</th>
-                <th>lname</th>
-                <th>designation</th>
-                <th>dob</th>
-                <th>zcode</th>
-                <th>gender</th>
-                <th>pref_location</th>
-                <th>expacted_ctc</th>
-                <th>email</th>
-                <th>current_ctc</th>
-                <th>department</th>
-                <th>notice_period</th>
-                <th>address</th>
-                <th>city</th>
-                <th>createdAt</th>
-                <th>phone</th>
-                <th>state</th>
-                <th>Edit</th>
-                <th>View</th>
-            </tr>
-            <% for(let i=0;i< data.length;i++){%>
+
+        <% if(data.length==0) {%>
+            <center><h3>Data Not Found</h3></center>    
+        <%}else{%>
+
+            <table border="1" class="table table-success table-striped-columns">
                 <tr>
-                    <% for(let j=0;j<id.length;j++) {%>
-                        <td>
-                            <%= data[i][id[j]] %>
-                        </td>
-                        <%}%>
-                            <td>
-                                <a href="/more/?id=<%= data[i].candidate_id %>">More</a>
-                            </td>
+                    <th>candidate_id</th>
+                    <th>fname</th>
+                    <th>lname</th>
+                    <th>designation</th>
+                    <th>dob</th>
+                    <th>zcode</th>
+                    <th>gender</th>
+                    <th>pref_location</th>
+                    <th>expacted_ctc</th>
+                    <th>email</th>
+                    <th>current_ctc</th>
+                    <th>department</th>
+                    <th>notice_period</th>
+                    <th>address</th>
+                    <th>city</th>
+                    <th>createdAt</th>
+                    <th>phone</th>
+                    <th>state</th>
+                    <th>Edit</th>
+                    <th>View</th>
                 </tr>
-                <%}%>
-        </table>
+                <% for(let i=0;i< data.length;i++){%>
+                    <tr>
+                        <% for(let j=0;j<id.length;j++) {%>
+                            <td>
+                                <%= data[i][id[j]] %>
+                            </td>
+                            <%}%>
+                                <td>
+                                    <a href="/more/?id=<%= data[i].candidate_id %>">More</a>
+                                </td>
+                                <td>
+                                    <a href="#">Edit</a>
+                                </td>
+                    </tr>
+                    <%}%>
+            </table>
+        <%}%>
+
     </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>

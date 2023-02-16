@@ -17,47 +17,47 @@ let technology_name;
 app.get('/', (req, res) => {
 
   //this query use for get data for drop down menu
-  con.query('SELECT * FROM practice.option_master where option_id=1', (err, result1, field) => {
+  con.query('SELECT * FROM design.option_master where option_id=1', (err, result1, field) => {
     if (err) {
       return console.log(err.message);
     }
     option_value = result1;
 
   });
-  con.query('SELECT * FROM practice.option_master where option_id=2', (err, result2, field) => {
+  con.query('SELECT * FROM design.option_master where option_id=2', (err, result2, field) => {
     if (err) {
       return console.log(err.message);
     }
     state_value = result2;
 
   });
-  con.query('SELECT * FROM practice.option_master where option_id=3', (err, result3, field) => {
+  con.query('SELECT * FROM design.option_master where option_id=3', (err, result3, field) => {
     if (err) {
       return console.log(err.message);
     }
     pref_value = result3;
 
   });
-  con.query('SELECT * FROM practice.option_master where option_id=4', (err, result4, field) => {
+  con.query('SELECT * FROM design.option_master where option_id=4', (err, result4, field) => {
     if (err) {
       return console.log(err.message);
     }
     department_value = result4;
 
   });
-  con.query('SELECT * FROM practice.education_courses_master', (err, course_result, field) => {
+  con.query('SELECT * FROM design.education_courses_master', (err, course_result, field) => {
     if (err) {
       return console.log(err.message);
     }
     courses_name = course_result;
   });
-  con.query('SELECT * FROM practice.option_master where option_id=5', (err, language_result, field) => {
+  con.query('SELECT * FROM design.option_master where option_id=5', (err, language_result, field) => {
     if (err) {
       return console.log(err.message);
     }
     language_name = language_result;
   });
-  con.query('SELECT * FROM practice.option_master where option_id=6', (err, technology_result, field) => {
+  con.query('SELECT * FROM design.option_master where option_id=6', (err, technology_result, field) => {
     if (err) {
       return console.log(err.message);
     }
@@ -66,11 +66,12 @@ app.get('/', (req, res) => {
   res.render("sample", { option_menu: option_value, state_menu: state_value, pref_menu: pref_value, department_menu: department_value, courses: courses_name, languages: language_name, technologies: technology_name });
 })
 
+
 app.post('/insert', (req, res) => {
   let id;
   const { fname, lname, designation, address1, address2, email, phone, city, gender, relationship, state, dob, zcode, department, expacted_ctc, notice_period, current_ctc, pref_location } = req.body
 
-  let basic_query = `INSERT INTO design.candidate_info (fname, lname, designation, dob, zcode, gender, perf_location, expacted_ctc, email, current_ctc, department, notice_peroid, address, city, createdAt, phone,state) VALUES ('${fname}', '${lname}', '${designation}', '${dob}', '${zcode}', '${gender}', '${pref_location}', '${expacted_ctc}', '${email}', '${current_ctc}', '${department}', '${current_ctc}', '${address1 + " " + address2}', '${city}',CURRENT_TIMESTAMP, '${phone}','${state}');`;
+  let basic_query = `INSERT INTO design.candidate_info (fname, lname, designation, dob, zcode, gender, perf_location, expacted_ctc, email, current_ctc, department, notice_peroid, address, city, createdAt, phone,state) VALUES ('${fname}', '${lname}', '${designation}', '${dob}', '${zcode}', '${gender}', '${pref_location}', '${expacted_ctc}', '${email}', '${current_ctc}', '${department}', '${notice_period}', '${address1 + " " + address2}', '${city}',CURRENT_TIMESTAMP, '${phone}','${state}');`;
 
   con.query(basic_query, (err, result1) => {
     console.log(result1, 'basic info insert success');
@@ -82,7 +83,6 @@ app.post('/insert', (req, res) => {
 
     console.log(Course, institution, Percentage, Passing_Year);
 
-
     if (typeof (Course, institution, Percentage, Passing_Year) == "string") {
       var edu_query = `INSERT INTO design.acadamic_info (course_name, education_board, education_year, education_grade, candidate_id) values ('${Course}',
             '${institution}','${Passing_Year}','${Percentage}',${id})`;
@@ -91,7 +91,6 @@ app.post('/insert', (req, res) => {
         if (err) return console.log(err.message);
         else {
           console.log(result2, 'acadamic insert success');
-
         }
 
       })
@@ -110,7 +109,6 @@ app.post('/insert', (req, res) => {
           else {
             console.log(result2, 'acadamic insert success');
           }
-
         })
 
       }
@@ -183,7 +181,7 @@ app.post('/insert', (req, res) => {
 
     //language
 
-    con.query(`SELECT * FROM practice.option_master where option_id=5;`, (err, result) => {
+    con.query(`SELECT * FROM design.option_master where option_id=5;`, (err, result) => {
       var query_lan;
       console.log(result);
       for (let i = 0; i < result.length; i++) {
@@ -211,7 +209,7 @@ app.post('/insert', (req, res) => {
 
 
     //technology
-    con.query(`SELECT * FROM practice.option_master where option_id=6;`, (err, result) => {
+    con.query(`SELECT * FROM design.option_master where option_id=6;`, (err, result) => {
       console.log(result);
       for (let i = 0; i < result.length; i++) {
         var tech = req.body[result[i].option_value]
@@ -347,6 +345,7 @@ app.post('/search', (req, res) => {
       }
     }
   }
+  
   
   con.query(query, (err, result) => {
     let ids = ['candidate_id', 'fname', 'lname', 'designation', 'dob', 'zcode', 'gender', 'perf_location', 'expacted_ctc', 'email', 'current_ctc', 'department', 'notice_peroid', 'address', 'city', 'createdAt', 'phone', 'state'];
